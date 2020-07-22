@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard"
 
 
 const ProductList = (props) => {
-    console.log("props in productlist ", props)
+    // console.log("props in productlist ", props)
     return (
         <div>
           {localStorage.token

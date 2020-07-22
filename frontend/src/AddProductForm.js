@@ -44,19 +44,23 @@ class AddProductForm extends React.Component{
 
     //   }
     handleChange = (e) => {
-        // debugger
         this.setState({
             [e.target.name]: e.target.value
         })
+        // console.log("inside handleChange, state: ", this.state)
     }
 
-    add = (e) => {  
+    handleAddNewProduct = (e) => {  
         e.preventDefault()
+        // console.log("Inside Handleadd method: ", this.state)
+        // console.log("Inside Handleadd method, props.product: ", this.props.products)
 
         fetch("http://localhost:3000/api/v1/products", {
             method: "POST",
             headers: {
-                "Content-type": "application/json"
+                "Content-type": "application/json",
+                'Accept': 'application/json',
+                Authorization: `Bearer ${localStorage.token}`
             },
             body: JSON.stringify({
                 name: this.state.name,
@@ -70,11 +74,23 @@ class AddProductForm extends React.Component{
             })
         })
         .then(res => res.json())
-        .then(console.log)
+        .then(newProd => {
+            // console.log("New Prodyct in addNEw method then: ", newProd.user)
+            this.props.add(newProd.user)
+            // this.setState({
+            //     products: [...this.props.products, newProd]
+            // })
+        })
 
     }
 
-    goHome = () => {
+    // handleSubmit = (e) => {
+    //     e.preventDefault()
+    //     console.log("state in handle submit", this.state)
+    //     this.props.add(this.state)
+    //   }
+
+    goToInventory = () => {
         this.props.history.push("/products")
     }
 
@@ -82,17 +98,19 @@ class AddProductForm extends React.Component{
 
     return(
         <div>
+            {/* {console.log("Addproduct props : ", this.props)}
+            {console.log("Addproduct state : ", this.state)} */}
+
          {localStorage.token
             ? <div>
 
-      
             <form onSubmit={(e) => {
-                this.add(e)
-                this.goHome()
+                this.handleAddNewProduct(e)
+                this.goToInventory()
                 }}>
 
 
-                <input type='text' name="name" placeholder='Name' onChange={(e) => this.handleChange(e)}/>{/*  </form>onChange={this.setField}/> */}
+                <input type='text' name="name" placeholder='Name' onChange={(e) => this.handleChange(e)}/> {/*  </form>onChange={this.setField}/> */}
                 <input type='text' name="sku" placeholder='SKU' onChange={(e) => this.handleChange(e)}/>{/* onChange={this.setField}/>*/}
                 <input type='text' name="color" placeholder='Color' onChange={(e) => this.handleChange(e)}/>{/* onChange={this.setField}/>*/}
                 <input type='text' name="price" placeholder='Price' onChange={(e) => this.handleChange(e)}/>{/* onChange={this.setField}/>*/}

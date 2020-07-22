@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 // class ProductCard extends Component{
 
@@ -19,7 +19,7 @@ import React, {Component} from 'react'
 //             </div>)
 //     }
     const ProductCard = (props) => {
-        console.log("props in card: ", props)
+        // console.log("props in card: ", props)
         let item = props.product
         return (
           <tr>

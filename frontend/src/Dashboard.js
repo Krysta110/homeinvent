@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import ProductList from './ProductList'
+// import ProductList from './ProductList'
 
 class Dashboard extends Component {
 

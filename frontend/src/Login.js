@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import {Redirect} from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+// import {BrowserRouter, Route, Switch} from 'react-router-dom'
+// import {Redirect} from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 
 
 class Login extends Component{
