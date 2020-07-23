@@ -1,32 +1,9 @@
 User.destroy_all()
-Painting.destroy_all()
 Product.destroy_all()
+PurchaseOrder.destroy_all()
 
 
-paintings = [
-  {
-    title: "Portrait of a Carthusian",
-    image:
-      "https://d32dm0rphc51dk.cloudfront.net/pVc7CubFzVlPhbErTAqyYg/medium.jpg"
-  },
-  {
-    title: "Study of a Young Woman",
-    image:
-      "https://d32dm0rphc51dk.cloudfront.net/pLcp7hFbgtfYnmq-b_LXvg/medium.jpg"
-  },
-  {
-   title: "Portrait of Gerard de Lairesse",
-    image:
-      "https://d32dm0rphc51dk.cloudfront.net/6b4QduWxeA1kSnrifgm2Zw/medium.jpg"
-  }
-]
-
-
-paintings.each do |p|
-  Painting.create(title: p[:title], image: p[:image])
-end
-
-products = [
+productsArray = [
   {
     name: "Aspen Sky",
     price: 11,
@@ -60,9 +37,9 @@ products = [
   
 ]
 
-u1 = User.create(username: "Krysta110")
+u1 = User.create(username: "Krysta110", password: "temp", first_name: "Krysta", last_name: "Wolkowiecki")
 
-products.each do |p|
+productsArray.each do |p|
   Product.create(
     name: p[:name],
     price: p[:price],
@@ -75,3 +52,12 @@ products.each do |p|
     user_id: u1.id
     )
 end
+
+po1=PurchaseOrder.create(
+  # date: 2020-07-16,
+  total_paid: 133.44,
+  company_name: "ColorStreet",
+  description: "strips",
+  order_num: "13386850"
+  # product_id: Product.all.last.id
+)

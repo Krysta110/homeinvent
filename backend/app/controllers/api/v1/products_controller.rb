@@ -15,7 +15,7 @@ class Api::V1::ProductsController < ApplicationController
         
         if product.valid?
           product.save
-          render json: {user: ProductSerializer.new(product)}, status: :created
+          render json: {product: ProductSerializer.new(product)}, status: :created
         else
           render json: {error: "Failed to create a product"}, status: :not_acceptable
         end
