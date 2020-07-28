@@ -12,9 +12,6 @@ class Api::V1::UsersController < ApplicationController
   end
 
 
-
-
-
   # Sign Up
   def create
     user = User.new(user_params)
@@ -30,7 +27,7 @@ class Api::V1::UsersController < ApplicationController
   private
 
   def user_params
-    params.permit(:id, :username, :password, :first_name, :last_name,
-  :company_name, :title, :tax_rate, :website_url)
+    params.permit(:id, :username, :password, :first_name, :last_name)
+  # :company_name, :title, :tax_rate, :website_url)
   end
 end

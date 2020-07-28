@@ -10,14 +10,61 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_204853) do
+ActiveRecord::Schema.define(version: 2020_07_24_175656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "paintings", force: :cascade do |t|
-    t.string "title"
-    t.string "image"
+  create_table "coitems", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "corder_id"
+    t.integer "qty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "corders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.float "total_paid"
+    t.string "order_num"
+    t.string "paid_with"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "email"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.integer "onhand_qty"
+    t.integer "comingin_qty"
+    t.integer "sale_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "poproducts", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "porder_id"
+    t.integer "qty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "porders", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "order_num"
+    t.float "total_paid"
+    t.string "description"
+    t.string "company_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,22 +74,6 @@ ActiveRecord::Schema.define(version: 2020_07_22_204853) do
     t.integer "price"
     t.string "color"
     t.string "sku"
-    t.integer "onhand_qty"
-    t.integer "coming_in_qty"
-    t.integer "sale_price"
-    t.string "image_url"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "purchase_orders", force: :cascade do |t|
-    t.date "date"
-    t.float "total_paid"
-    t.string "company_name"
-    t.string "description"
-    t.string "order_num"
-    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,16 +83,6 @@ ActiveRecord::Schema.define(version: 2020_07_22_204853) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
-    t.string "company_name"
-    t.string "title"
-    t.float "tax_rate"
-    t.string "website_url"
-    t.string "logo"
-    t.integer "commission_rate"
-    t.string "address_street"
-    t.string "address_city"
-    t.string "address_state"
-    t.string "address_zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

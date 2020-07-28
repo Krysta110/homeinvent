@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
   # localhost:3000/api/v1/login
+
+  resources :products
+
   namespace :api do
     namespace :v1 do
       resources :users #, only: [:create, :show]
-      resources :products #, only: [:create, :index, :show]
+                         #, only: [:create, :index, :show]
       resources :dashboard
-      resources :purchaseorders
+
+      resources :products
+      resources :porders
+
+      resources :customers
+      resources :corders
+
+      resources :items
 
       post "/login", to: "auth#create"
-
+      # get "/products", to: "products#index"
     end
   end
 end
