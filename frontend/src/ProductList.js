@@ -1,39 +1,41 @@
 import React from "react"
-import ProductCard from "./ProductCard"
+import ProductListItem from "./ProductListItem"
+import {Link} from 'react-router-dom'
+
 
 
 const ProductList = (props) => {
-    // console.log("props in productlist ", props)
+    console.log("props in productlist ", props)
     return (
         <div>
           {localStorage.token
             ? <div>
+        <p><Link to="/addproductform" style={{color: "green"}}>Add A New Product</Link></p>
 
-        <h2 className="ui center aligned header"> My Inventory</h2>
+        <h2 className="ui center aligned header"> All Products</h2>
         <table className="ui celled striped padded table">
           <tbody>
             <tr>
+
               <th>
                 <h4 className="ui center aligned header">Name</h4>
               </th>
+
               <th>
                 <h4 className="ui center aligned header">SKU</h4>
               </th>
+
               <th>
                 <h4 className="ui center aligned header">Color</h4>
               </th>
+
               <th>
                 <h4 className="ui center aligned header">Price</h4>
               </th>
-              <th>
-              <h4 className="ui center aligned header">On Hand</h4>
-              </th>
-              <th>
-              <h4 className="ui center aligned header">Coming In</h4>
-              </th>
+s
             </tr>
                  {props.products.map(product => {
-                 return <ProductCard product={product} key={product.id}/>
+                 return (<ProductListItem product={product} key={product.id}/>)
                 }) }
 
     

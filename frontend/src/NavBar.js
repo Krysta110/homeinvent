@@ -3,13 +3,13 @@ import {Link} from 'react-router-dom'
 
 function NavBar(){
 
-    let logout = () => {
-        localStorage.clear()
-        console.log("logged out")
-    }
+    // let logout = () => {
+    //     localStorage.clear()
+    //     console.log("logged out")
+    // }
     
     return(
-        <div className="ui inverted green menu">
+        <div className="ui inverted black menu">
             {/* <a className="item" href={"/"}>
             <h2 className="ui header">
             <i className="paint brush icon" />
@@ -20,7 +20,7 @@ function NavBar(){
             <div className="item">
             <h2 className="ui header">
                 <div className="content">
-                    <Link to="/dashboard" style={{color: "black"}}>Dashboard</Link>
+                    <Link to="/dashboard" style={{color: "magenta"}}>Dashboard</Link>
                 </div>
             </h2>
             </div>
@@ -28,7 +28,7 @@ function NavBar(){
             <div className="item">
             <h2 className="ui header">
                 <div className="content">
-                    <Link to="/products" style={{color: "black"}}>Inventory</Link>
+                    <Link to="/items" style={{color: "magenta"}}>My Inventory</Link>
                 </div>
             </h2>
             </div>
@@ -36,36 +36,44 @@ function NavBar(){
             <div className="item">
             <h2 className="ui header">
                 <div className="content">
-                    <Link to="/addproductform" style={{color: "black"}}>Add A Product</Link>
+                    <Link to="/products" style={{color: "magenta"}}> All Products</Link>
                 </div>
             </h2>
             </div>
 
+
+
+             {/* <div className="item">
+            <h2 className="ui header">
+                <div className="content">
+                    <Link to="/addpoform" style={{color: "black"}}>Add A PO</Link>
+                </div>
+            </h2>
+            </div> */}
+            
+            <div className="item">
+            <h2 className="ui header">
+                <div className="content">
+                    <Link to="/signup" style={{color: "magenta"}}>SignUp</Link>
+                </div>
+            </h2>
+            </div>
 
             <div className="item">
             <h2 className="ui header">
                 <div className="content">
-                    <Link to="/signup" style={{color: "black"}}>SignUp</Link>
+                    <Link to="/login" style={{color: "magenta"}}>Login</Link>
                 </div>
             </h2>
             </div>
 
-            <div className="item">
-            <h2 className="ui header">
-                <div className="content">
-                    <Link to="/login" style={{color: "black"}}>Login</Link>
-                </div>
-            </h2>
-            </div>
-
-            <div className="item">
+            {/* <div className="item">
             <h2 className="ui header">
                 <div className="content">
                    <button onClick={logout}>Logout</button>
-                   {/* <Link to="/login" style={{color: "black"}}>LogOut</Link> */}
                 </div>
             </h2>
-            </div>
+            </div> */}
             
         </div>
     )

@@ -35,8 +35,8 @@ class SignUp extends Component{
 
     }
    
-    goToDashboard = () => {
-        this.props.history.push("/dashboard")
+    goToLogin = () => {
+        this.props.history.push("/login")
     }
 
     render(){
@@ -45,32 +45,47 @@ class SignUp extends Component{
             <h2>Signup</h2>
             <form onSubmit={(e) => {
                 this.signUp(e)
-                this.goHome()
+                this.goToLogin()
             }}>
-                
-            <label>UserName</label>
+             <p>   
+            <label>UserName </label>
             <input name="username" type="text" onChange={(e) => this.handleChange(e)}/>
+            </p>
 
-            <label>Password</label>
+            <p>
+            <label>Password </label>
             <input name="password" type="password" onChange={(e) => this.handleChange(e)}/>
+            </p>
 
-            <label>First Name</label>
+            <p>
+            <label>First Name   </label>
             <input name="first_name" type="text" onChange={(e) => this.handleChange(e)}/>
+            </p>
 
-            <label>Last Name</label>
+            <p>
+            <label>Last Name    </label>
             <input name="last_name" type="text" onChange={(e) => this.handleChange(e)}/>
+            </p>
 
-            <label>Company Name</label>
+            <p>
+            <label>Company Name </label>
             <input name="company_name" type="text" onChange={(e) => this.handleChange(e)}/>
+            </p>
 
-            <label>Title</label>
+            <p>
+            <label>Title    </label>
             <input name="title" type="text" onChange={(e) => this.handleChange(e)}/>
+            </p>
 
-            <label>Website URL</label>
+            <p>
+            <label>Website URL  </label>
             <input name="website_url" type="text" onChange={(e) => this.handleChange(e)}/>
+            </p>
 
-            <label>Tax Rate</label>
+            <p>
+            <label>Tax Rate </label>
             <input name="tax_rate" type="text" onChange={(e) => this.handleChange(e)}/>
+            </p>
 
             {/* <label>Commisson Rate</label>
             <input name="commission_rate" type="text" onChange={(e) => this.handleChange(e)}/> */}

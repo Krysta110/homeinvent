@@ -9,6 +9,11 @@ import SignUp from './SignUp'
 import Dashboard from './Dashboard'
 // import {Link} from 'react-router-dom'
 import AddProductForm from './AddProductForm'
+import AddPorderForm from './AddPorderForm'
+import PorderList from './PorderList'
+import AddCustomerForm from './AddCustomerForm'
+import CustomerList from './CustomerList'
+import ItemList from './ItemList'
 
 
 
@@ -17,95 +22,54 @@ class App extends React.Component{
   constructor(){
     super()
     this.state = {
-      // testNew: "testnew",
-      // test: "test",
-      // form: false,
-      products: []
+      products: [],
+      porders: [],
+      customers: [],
+      items: []
     }
   }
 
   componentDidMount(){
     this.getProducts()
+    this.getPorders()
+    this.getCustomers()
+    this.getItems()
   }
 
+  goToProducts = () => {
+    this.state.history.push("/products")
+  }
 
-  addProduct = (e) => {
-    e.preventDefault()
-    // console.log("addproduct: name: ", e.target[0].value)
-    let newProduct = {
-          name: e.target[0].value,
-          sku: e.target[1].value,
-          color: e.target[2].value,
-          price: e.target[3].value,
-          sale_price: e.target[4].value,
-          image_url: e.target[5].value,
-          onhand_qty: e.target[6].value,
-          coming_in_qty: e.target[7].value
+  goToAllporders = () => {
+  this.props.history.push("/purchaseorders")
+  }
+
+  goToCustomers = () => {
+    this.props.history.push("/customers")
     }
 
-    let newArr = [...this.state.products, newProduct]
-
-    this.setState({
-      products: newArr
-    }) 
-  }
-
-  // createNewProduct = (newProd) => {
-
-  //   console.log("create new product: ", newProd)
-  //   fetch("http://localhost:3000/api/v1/prooducts", {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(newProd)
-  //     })
-  //     .then(res => res.json())
-  //     .then(newProd => {
-  //       this.setState({
-  //         products: [...this.state.products, newProd],
-  //       })
-  //     })
-  // }
-
-  goToInventory = () => {
-    this.state.history.push("/products")
-}
-
   addNewProduct = (newProd) => {  
-    
-    // console.log("Inside add method: ", this.state)
-    // console.log("Inside add method, props.product: ", this.props.products)
-
-    // fetch("http://localhost:3000/api/v1/products", {
-    //     method: "POST",
-    //     headers: {
-    //         // "Content-type": "application/json",
-    //         Authorization: `Bearer ${localStorage.token}`
-    //     },
-    //     body: JSON.stringify({
-    //         name: prod.name,
-    //         sku: prod.sku,
-    //         color: prod.color,
-    //         price: prod.price,
-    //         sale_price: prod.sale_price,
-    //         image_url: prod.image_url,
-    //         onhand_qty: prod.onhand_qty,
-    //         coming_in_qty: prod.coming_in_qty
-    //     })
-    // })
-    // .then(res => res.json())
-    // .then(newProd => {
-    //     console.log("New Prodyct in addNEw method: ", newProd)
-
-    console.log("newProd in APP: ", newProd)
         this.setState({
             products: [...this.state.products, newProd]
         })
-    // })
-    // this.goToInventory()
+    // this.goToProducts()
   }
 
+  addNewPO = (newPO) => {  
+    console.log("inside App newPO: ", newPO)
+    this.setState({
+        porders: [...this.state.porders, newPO]
+    })
+    // this.goToAllporders()
+  }
+
+  addNewCust = (newCust) => {  
+    console.log("inside App newCust: ", newCust)
+    this.setState({
+        customers: [...this.state.customers, newCust]
+    })
+    // this.goToCustomers()
+  }
 
   getProducts = () => {
       fetch("http://localhost:3000/api/v1/products",
@@ -116,50 +80,94 @@ class App extends React.Component{
         } 
       })
       .then(res => res.json())
-
       .then(data => {
         this.setState({
           products: data
         })
       })   
       // console.log(this.state.products)
-   
   }
+
+  getPorders = () => {
+    fetch("http://localhost:3000/api/v1/porders",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`
+      } 
+    })
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        porders: data
+      })
+    })   
+    // console.log(this.state.porders)
+}
+
+getCustomers = () => {
+  fetch("http://localhost:3000/api/v1/customers",
+  {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.token}`
+    } 
+  })
+  .then(res => res.json())
+  .then(data => {
+    this.setState({
+      customers: data
+    })
+  })   
+  console.log("in app/getcustomers/state.customers: ", this.state.customer)
+}
+
+getItems = () => {
+  fetch("http://localhost:3000/api/v1/items",
+  {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${localStorage.token}`
+    } 
+  })
+  .then(res => res.json())
+  .then(data => {
+    this.setState({
+      items: data
+    })
+  })   
+}
+
+
+
 
   render(){
 
     return (
-   
       <BrowserRouter>
     <div>
         <NavBar />
-        {/* <button onClick={this.getProducts}>Show Inventory</button> */}
+
         <Switch>
 
-        {/* <Route path="/login" component={Login} /> */}
-        <Route path="/login" component={(routerProps)=><Login {...routerProps} />} />
+              <Route path="/dashboard" component={Dashboard} />
 
-        <Route path="/signup" component={SignUp} />
+              <Route path="/login" component={(routerProps)=><Login {...routerProps} />} />
+              <Route path="/signup" component={SignUp} />
 
-        {/* <Route path="/paintings/new" render = {(routeProps) =><PaintingForm {...routeProps} add={this.addPainting} /> } /> */}
+              <Route path="/products" render={() => <ProductList products={this.state.products} />}/>
+              <Route path="/addproductform" component={(routerProps)=><AddProductForm {...routerProps} add={this.addNewProduct} products={this.state.products}/>} />
 
-        <Route path="/products" render={() => <ProductList products={this.state.products} />}/>
-      
-        <Route path="/addproductform" component={(routerProps)=><AddProductForm {...routerProps} add={this.addNewProduct} products={this.state.products}/>} />
-        {/* <Route path="/addproductform" render = {(routeProps) =><AddProductForm {...routeProps} add={this.addNewProduct} products={this.state.products}/>} /> */}
+              <Route path="/items" render={() => <ItemList items={this.state.items} />}/>
+              <Route path="/addinventory" component={(routerProps)=><AddProductForm {...routerProps} add={this.addNewProduct} products={this.state.products}/>} />
 
-         {/* <Route path="/addproductform" render={() => <AddProductForm products={this.state.products} onSubmit={this.props.createNewProduct}/>}/> */}
-        {/* if (localStorage.token !== 'undefined') {
-            // <ProductList products={this.state.products}  />
-    
-           <Dashboard />
+              <Route path="/porders" render={() => <PorderList porders={this.state.porders} />}/>
+              <Route path="/addporderform" component={(routerProps)=><AddPorderForm {...routerProps} products={this.state.products} add={this.addNewPO} porders={this.state.porders}/>} />
 
-            // <Route path='/products' render={routerProps => <ProductList {...routerProps} products={this.state.products}/>} />
-           */}
-           if(localStorage.token !== 'undefined') {
-            <Dashboard products={this.state.products}  />
-          }
-         }
+              <Route path="/customers" render={() => <CustomerList customers={this.state.customers}/>}/>
+              <Route path="/addcustomerform" component={(routerProps)=><AddCustomerForm {...routerProps} add={this.addNewCust}/>} />
+
+            
         </Switch>
         
 
