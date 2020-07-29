@@ -18,10 +18,6 @@ const PorderList = (props) => {
             <tr>
 
               <th>
-                <h4 className="ui center aligned header">Date</h4>
-              </th>
-
-              <th>
                 <h4 className="ui center aligned header">Total Paid</h4>
               </th>
 
@@ -37,13 +33,17 @@ const PorderList = (props) => {
               <h4 className="ui center aligned header">Order Number</h4>
               </th>
 
+              <th>
+                <h4 className="ui center aligned header">Product</h4>
+              </th>
+
               {/* <th>
               <h4 className="ui center aligned header">Product</h4>
               </th> */}
 
             </tr>
                  {props.porders.map(purchaseorder => {
-                 return (<PorderCard purchaseorder={purchaseorder} key={purchaseorder.id} />)
+                 return (<PorderCard purchaseorder={purchaseorder} key={purchaseorder.id}/>)
                 }) }
 
     

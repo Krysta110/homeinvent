@@ -1,24 +1,23 @@
 import React from 'react'
 import add_button from './add.png'
-import delete_button from './delete.png'
+// import delete_button from './delete.png'
+// import AddToInventoryForm from './AddToInventoryForm'
+
+  class ProductListItem extends React.Component {
 
 
-
-    const ProductListItem = (props) => {
-        // console.log("props in card: ", props)
-
-      // handleAddToInventory =() => {
+      // handleAddToInventory = () => {
 
       // }
-
-
-
-        let item = props.product
-        return (
+    
+        render() {
+          let item = this.props.product
+          return (
+        
           <tr>
             <td>
-            <img src={add_button} style={{width: "15px", height: "15px"}}/>
-
+            <img src={add_button} alt="add" style={{width: "15px", height: "15px"}} />
+            {/* onClick={()=>this.handleAddToInventory()} */}
             {item.name}
             </td>
             <td>{item.sku}</td>
@@ -26,7 +25,10 @@ import delete_button from './delete.png'
             <td>{item.price}</td>
 
           </tr>
+
+          
         )
-      }
+    }
+  }
 
 export default ProductListItem

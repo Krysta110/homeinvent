@@ -26,7 +26,8 @@ class AddCustomerForm extends React.Component{
             body: JSON.stringify({
                 name: this.state.name,
                 phone: this.state.phone,
-                email: this.state.email
+                email: this.state.email,
+                // user_id: this.state.user.id
             })
         })
         .then(res => res.json())

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_175656) do
     t.float "total_paid"
     t.string "order_num"
     t.string "paid_with"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,13 +37,11 @@ ActiveRecord::Schema.define(version: 2020_07_24_175656) do
     t.string "name"
     t.string "phone"
     t.string "email"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "product_id"
     t.integer "onhand_qty"
     t.integer "comingin_qty"
@@ -60,11 +59,11 @@ ActiveRecord::Schema.define(version: 2020_07_24_175656) do
   end
 
   create_table "porders", force: :cascade do |t|
-    t.integer "user_id"
     t.string "order_num"
     t.float "total_paid"
     t.string "description"
     t.string "company_name"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

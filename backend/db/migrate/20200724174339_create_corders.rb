@@ -5,6 +5,7 @@ class CreateCorders < ActiveRecord::Migration[5.2]
       t.float :total_paid
       t.string :order_num
       t.string :paid_with
+      t.integer :product_id
 
       t.timestamps
     end

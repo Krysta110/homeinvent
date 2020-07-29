@@ -1,5 +1,5 @@
 class PorderSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :order_num, :total_paid, :description, :company_name
+  attributes :id, :order_num, :total_paid, :description, :company_name, :product_id, :product
 
   def product
     {id: self.object.product.id, 

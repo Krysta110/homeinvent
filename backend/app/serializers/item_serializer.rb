@@ -1,5 +1,5 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :user_id, :product, :onhand_qty, :comingin_qty, :sale_price
+  attributes  :product, :onhand_qty, :comingin_qty, :sale_price
   # attributes :id, :name, :owner 
   def product
     {id: self.object.product.id, 

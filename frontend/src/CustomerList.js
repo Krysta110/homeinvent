@@ -1,5 +1,5 @@
 import React from "react"
-import CustomerCard from "./CustomerCard"
+import CustomerListItem from "./CustomerListItem"
 import {Link} from 'react-router-dom'
 
 
@@ -35,7 +35,7 @@ const CustomerList = (props) => {
 
             </tr>
                  {props.customers.map(customer => {
-                 return (<CustomerCard customer={customer} key={customer.id}/>)
+                 return (<CustomerListItem customer={customer} key={customer.id}/>)
                 }) }
 
           </tbody>

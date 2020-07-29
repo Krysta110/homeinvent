@@ -6,7 +6,7 @@ class Api::V1::CordersController < ApplicationController
     end
     
     def show
-        corder = cCrder.find(params[:id]) 
+        corder = Corder.find(params[:id]) 
         render json: corder 
     end
     
@@ -25,7 +25,7 @@ class Api::V1::CordersController < ApplicationController
       private
     
       def corder_params
-        params.permit(:id, :customer_id, :total_paid, :paid_with, :order_num)
+        params.permit(:id, :customer_id, :item_id, :total_paid, :paid_with, :order_num)
       end
 
     

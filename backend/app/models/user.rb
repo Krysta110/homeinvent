@@ -1,12 +1,12 @@
 class User < ApplicationRecord
 
-  has_many :items
-  has_many :products, through: :items
+  # has_many :items
+  # has_many :products, through: :items
   
-  has_many :porders
+  # has_many :porders
 
-  has_many :customers
-  has_many :corders, through: :customers
+  # has_many :customers
+  # has_many :corders, through: :customers
 
 
 

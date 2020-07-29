@@ -6,7 +6,9 @@ import {Link} from 'react-router-dom'
 class Dashboard extends Component {
 
 
-
+  goToLogin = () => {
+    this.props.history.push("/login")
+}
 
   render(){
     // console.log("dashboard friendObjs:", this.props.friendObjs)
@@ -14,8 +16,11 @@ class Dashboard extends Component {
     let logout = () => {
       localStorage.clear()
       console.log("logged out")
+      this.goToLogin()
+
     }
     
+
     return(
       <div className = "dashboard">
 
@@ -26,11 +31,11 @@ class Dashboard extends Component {
                 
                 <h5>My Inventory:</h5>
                 <p><Link to="/items" style={{color: "green"}}>View My Inventory</Link></p>
-                <p><Link to="/additemform" style={{color: "green"}}>Add A New Item</Link></p>
+                {/* <p><Link to="/additemform" style={{color: "green"}}>Add A New Item</Link></p> */}
 
                 <h5>Products:</h5>
-                <p><Link to="/products" style={{color: "green"}}>View All Products</Link></p>
                 <p><Link to="/addproductform" style={{color: "green"}}>Add A New Product</Link></p>
+                <p><Link to="/products" style={{color: "green"}}>View All Products</Link></p>
 
                 <h5>Purchase Orders:</h5>
                 <p><Link to="/addporderform" style={{color: "green"}}>Add A Purchase Order</Link></p>
@@ -38,10 +43,11 @@ class Dashboard extends Component {
 
                 <h5>Customers:</h5>
                 <p><Link to="/addcustomerform" style={{color: "green"}}>Add A New Customer</Link></p>
-                <p><Link to="/customers" style={{color: "green"}}>View All Customer</Link></p>
+                <p><Link to="/customers" style={{color: "green"}}>View All Customers</Link></p>
 
                 <h5>Customer Orders:</h5>
-
+                <p><Link to="/addcorderform" style={{color: "green"}}>Add A Customer Order</Link></p>
+                <p><Link to="/corders" style={{color: "green"}}>View All Customer Orders</Link></p>
 
                 <h5>My Account:</h5>
                 <p><Link to="/myprofile" style={{color: "green"}}>My Profile</Link></p>

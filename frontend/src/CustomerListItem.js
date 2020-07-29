@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-    const CustomerCard = (props) => {
+    const CustomerListItem = (props) => {
         // console.log("props in card: ", props)
         let cust = props.customer
         return (
@@ -16,4 +16,4 @@ import React from 'react'
         )
       }
 
-export default CustomerCard
+export default CustomerListItem

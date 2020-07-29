@@ -31,18 +31,26 @@ class Login extends Component{
             console.log("localStorage in login method: ", localStorage)
             // <Redirect push to="/dashboard"/>
             if (localStorage.token !== 'undefined'){
-             this.props.history.push('/dashboard')
+            //  this.props.history.push('/dashboard')
+            this.goToDashboard()
             }
           
         })
     
     }
    
+    goToDashboard = () => {
+        this.props.history.push("/dashboard")
+    }
+    
     render(){
         return(
         <div>
             <h2>LogIn</h2>
-            <form onSubmit={(e) => this.logIn(e)}>
+            <form onSubmit={(e) => {
+                this.logIn(e)
+                this.goToDashboard()
+            }}>
             <label>UserName</label>
             <input name="username" type="text" onChange={(e) => this.handleChange(e)}/>
             <label>Password</label>

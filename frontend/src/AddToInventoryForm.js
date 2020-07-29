@@ -42,32 +42,33 @@ class AddToInventoryForm extends React.Component {
 
   render() {
     return (
-        {localStorage.token
-            ? <div>
+        // {localStorage.token}
+        //     ? 
+        <div>
 
             <form onSubmit={(e) => {
                 this.handleAddNewProduct(e)
                 this.goToAllProducts()
                 }}>
 
-
-                <p><input type='text' name="name" placeholder='Name' onChange={(e) => this.handleChange(e)}/> </p>
+                <p>this.props: {this.props}</p>
+                {/* <p><input type='text' name="name" placeholder='Name' onChange={(e) => this.handleChange(e)}/> </p>
                 <p><input type='text' name="sku" placeholder='SKU' onChange={(e) => this.handleChange(e)}/></p>
                 <p><input type='text' name="color" placeholder='Color' onChange={(e) => this.handleChange(e)}/></p>
                 <p><input type='text' name="price" placeholder='Price' onChange={(e) => this.handleChange(e)}/></p>
-                <p><input type='text' name="image_url" placeholder='Image URL' onChange={(e) => this.handleChange(e)} /></p>
+                <p><input type='text' name="image_url" placeholder='Image URL' onChange={(e) => this.handleChange(e)} /></p> */}
 
-                <p><input type='submit' value='Add Product'/></p>
+                {/* <p><input type='submit' value='Add Product'/></p> */}
                 
             </form>
-            <p><Link to="/products">All Products</Link></p>
+            {/* <p><Link to="/products">All Products</Link></p> */}
 
-            </div>
-            : <h4> Please Log In to add a new Product</h4>
-        }
+            
+            // : <h4> Please Log In to add a new Product</h4>
+        
 
         </div>
-    );
+    )}
 }
 
 export default AddToInventoryForm;

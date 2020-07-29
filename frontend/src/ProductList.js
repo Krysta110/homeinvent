@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 
 
 const ProductList = (props) => {
+
     console.log("props in productlist ", props)
     return (
         <div>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API
 
-    before_action :logged_in?
+    # before_action :logged_in?
 
     def encode_token(payload)   #method that creates the token
         JWT.encode(payload, "se042020")
