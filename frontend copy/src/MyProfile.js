@@ -17,6 +17,12 @@ class MyProfile extends Component{
             <p>First Name: {user.first_name}</p>
             <p>Last Name: {user.last_name}</p>
             <p>Company Name: {user.company_name}</p>
+            <p>Title: {user.title}</p>
+            <p>Website URL: {user.website_url}</p>
+            <p>Email: {user.email}</p>
+            <p>Tax Rate: {user.tax_rate}</p>
+
+
 
             {/* <button onClick={logout}>Edit Profile</button> */}
             <p><Link to="/editprofileform" style={{color: "green"}}>Edit Profile</Link></p>

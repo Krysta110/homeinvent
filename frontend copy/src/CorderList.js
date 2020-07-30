@@ -10,9 +10,10 @@ const CorderList = (props) => {
         <div>
           {localStorage.token
             ? <div>
-        <p><Link to="/addcorderform" style={{color: "green"}}>Add A New Customer Order</Link></p>
 
         <h2 className="ui left aligned header"> Customer Orders</h2>
+        <p><Link to="/addcorderform" style={{color: "green"}}>Add A New Customer Order</Link></p>
+
         {/* <table className="ui celled striped padded table"> */}
           {/* <tbody>
             <tr> */}

@@ -28,6 +28,11 @@ class Dashboard extends Component {
         {localStorage.token
             ? <div>
                 <h3>Welcome To Your Home In-Vent Dashboard</h3>
+
+                <h5>My Sales:</h5>
+                <p>Month to Date: 889 items @ $7,411 </p>
+                <p>Year to Date: 1862 items @ $18,410</p>
+
                 
                 <h5>My Inventory:</h5>
                 <p><Link to="/products" style={{color: "green"}}>View My Inventory</Link></p>
@@ -38,6 +43,9 @@ class Dashboard extends Component {
                 <p><Link to="/customers" style={{color: "green"}}>View All Customers</Link></p>
 
                 <h5>Customer Orders:</h5>
+                <p><Link to="/addcorderform" style={{color: "green"}}>Add A New Order</Link></p>
+                <p><Link to="/corders" style={{color: "green"}}>View All Orders</Link></p>
+
 
 
                 <h5>My Account:</h5>

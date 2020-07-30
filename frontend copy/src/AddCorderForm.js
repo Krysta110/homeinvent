@@ -92,7 +92,7 @@ class AddCorderForm extends React.Component{
     
                 <form onSubmit={(e) => {
                     this.handleAddNewCorder(e)
-                    // this.goToAllCorders()
+                    this.goToAllCorders()
                     }}>
     
 

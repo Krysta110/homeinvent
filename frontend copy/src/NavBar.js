@@ -44,18 +44,12 @@ function NavBar(){
             </h2>
             </div>
             
-            <div className="item">
-            <h2 className="ui header">
-                <div className="content">
-                    <Link to="/signup" style={{color: "magenta"}}>SignUp</Link>
-                </div>
-            </h2>
-            </div>
+
 
             <div className="item">
             <h2 className="ui header">
                 <div className="content">
-                    <Link to="/login" style={{color: "magenta"}}>Login</Link>
+                    <Link to="/login" style={{color: "magenta"}}>Logout</Link>
                 </div>
             </h2>
             </div>

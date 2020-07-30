@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 // import {BrowserRouter, Route, Switch} from 'react-router-dom'
 // import {Redirect} from 'react-router-dom';
 // import { NavLink } from 'react-router-dom';
+import {Link} from 'react-router-dom'
+
 
 
 class Login extends Component{
@@ -44,14 +46,39 @@ class Login extends Component{
     render(){
         return(
         <div>
+            <h1>Welcome To Home In-Vent</h1>
+            <h4> Keep your InVentory organized while at Home!</h4>
+
             <h2>LogIn</h2>
             <form onSubmit={(e) => this.logIn(e)}>
-            <label>UserName</label>
+            
+            <p>
+            <label>UserName </label>
             <input name="username" type="text" onChange={(e) => this.handleChange(e)}/>
-            <label>Password</label>
+            </p>
+
+            <p>
+            <label>Password </label>
             <input name="password" type="password" onChange={(e) => this.handleChange(e)}/>
+            </p>
+
+            <p>
             <input type="submit"/>
+            </p>
             </form>
+
+            <div className="item">
+                <div className="content">
+                    <p>
+                    Don't Have An Account?
+                    <Link to="/signup" style={{color: "green"}}> SignUp Here</Link>
+                    </p>
+                </div>
+
+            </div>
+
+
+
         </div>
         )
     }

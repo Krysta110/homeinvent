@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
+
 
 class SignUp extends Component{
 
@@ -25,7 +27,8 @@ class SignUp extends Component{
                 company_name: this.state.company_name,
                 title: this.state.title,
                 website_url: this.state.website_url,
-                tax_rate: this.state.tax_rate,
+                email: this.state.email,
+                tax_rate: this.state.tax_rate
                 // commission_rate: this.state.commission_rate
 
             })
@@ -83,6 +86,11 @@ class SignUp extends Component{
             </p>
 
             <p>
+            <label>Email  </label>
+            <input name="email" type="text" onChange={(e) => this.handleChange(e)}/>
+            </p>
+
+            <p>
             <label>Tax Rate </label>
             <input name="tax_rate" type="text" onChange={(e) => this.handleChange(e)}/>
             </p>
@@ -95,6 +103,11 @@ class SignUp extends Component{
 
             <input type="submit"/>
             </form>
+
+            <p>
+                    Already have an Account?
+                    <Link to="/login" style={{color: "green"}}> Login Here</Link>
+                    </p>
         </div>
         )
     }
