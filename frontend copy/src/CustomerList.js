@@ -70,16 +70,17 @@ render(){
         <div>
           {localStorage.token
             ? <div>
-              {this.state.showEdit ? <EditCustomerForm customer={this.state.customer}/>
+              {this.state.showEdit ? <EditCustomerForm customer={this.state.customer} updateCustomer={this.props.updateCustomer}/>
               : null }
 
 
 
-        <p><Link to="/addcustomerform" style={{color: "green"}}>Add A New Customer</Link></p>
+        
 
         <h2 className="ui left aligned header"> All Customers</h2>
         {/* <table className="ui celled striped padded table"> */}
-        <table class="ui selectable celled table">
+        <p><Link to="/addcustomerform" style={{color: "green"}}>Add A New Customer</Link></p>
+        <table className="ui selectable celled table">
 
           <tbody>
             <tr>
@@ -102,7 +103,7 @@ render(){
 
             </tr>
                  {this.props.customers.map(customer => {
-                 return (<CustomerListItem customer={customer} handleCustomerID={this.handleCustomerID} key={customer.id}/>)
+                 return (<CustomerListItem customer={customer}  handleCustomerID={this.handleCustomerID} key={customer.id}/>)
                 }) }
 
           </tbody>

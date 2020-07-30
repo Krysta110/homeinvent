@@ -146,7 +146,16 @@ editUser = (user)=>{
 
 updateProduct = (item) =>{
   // {this.props.updateProduct}
-  console.log("updateProduct in App: ", item)
+  this.setState({
+    products: this.state.products.map(p=>p.id == item.id? item : p)
+  })
+}
+
+updateCustomer = (item) =>{
+  // {this.props.updateProduct}
+  this.setState({
+    customers: this.state.customers.map(p=>p.id == item.id? item : p)
+  })
 }
 
 
@@ -164,10 +173,10 @@ updateProduct = (item) =>{
               <Route path="/login" component={(routerProps)=><Login {...routerProps} />} />
               <Route path="/signup" component={SignUp} />
 
-              <Route path="/products" render={() => <ProductList products={this.state.products} updateProduct={this.updateProduct}/>}/>
+              <Route path="/products" render={() => <ProductList products={this.state.products}  updateProduct={this.updateProduct}/>}/>
               <Route path="/addproductform" component={(routerProps)=><AddProductForm {...routerProps} add={this.addNewProduct} products={this.state.products}/>} />
 
-              <Route path="/customers" render={() => <CustomerList customers={this.state.customers}/>}/>
+            <Route path="/customers" component={(routerProps)=> <CustomerList {...routerProps} updateCustomer={this.updateCustomer} customers={this.state.customers}/>}  />
               <Route path="/addcustomerform" component={(routerProps)=><AddCustomerForm {...routerProps} add={this.addNewCust}/>} />
               
               <Route path="/corders" render={() => <CorderList corders={this.state.corders} customers={this.state.customers}/>}/>
