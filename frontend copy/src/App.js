@@ -52,7 +52,8 @@ class App extends React.Component{
         })
     // this.goToProducts()
   }
-c
+
+
   addNewCO = (newCO) => {  
     console.log("inside App newCO: ", newCO)
     this.setState({
@@ -137,7 +138,16 @@ getCorders = () => {
   })   
 }
 
+editUser = (user)=>{
+  this.setState({
+    current_user: user
+  })
+}
 
+updateProduct = (item) =>{
+  // {this.props.updateProduct}
+  console.log("updateProduct in App: ", item)
+}
 
 
   render(){
@@ -154,7 +164,7 @@ getCorders = () => {
               <Route path="/login" component={(routerProps)=><Login {...routerProps} />} />
               <Route path="/signup" component={SignUp} />
 
-              <Route path="/products" render={() => <ProductList products={this.state.products} />}/>
+              <Route path="/products" render={() => <ProductList products={this.state.products} updateProduct={this.updateProduct}/>}/>
               <Route path="/addproductform" component={(routerProps)=><AddProductForm {...routerProps} add={this.addNewProduct} products={this.state.products}/>} />
 
               <Route path="/customers" render={() => <CustomerList customers={this.state.customers}/>}/>
@@ -164,7 +174,7 @@ getCorders = () => {
               <Route path="/addcorderform" component={(routerProps)=><AddCorderForm {...routerProps} products={this.state.products} customers={this.state.customers} add={this.addNewCO} />} />
 
               <Route path="/myprofile" render={() => <MyProfile user={this.state.current_user}/>}/>
-              <Route path="/editprofileform" component={(routerProps)=><EditProfileForm {...routerProps} user={this.state.current_user} add={this.editProfile}/>} />
+              <Route path="/editprofileform" component={(routerProps)=><EditProfileForm {...routerProps} user={this.state.current_user} editUser={this.editUser}/>} />
         </Switch>
         
 

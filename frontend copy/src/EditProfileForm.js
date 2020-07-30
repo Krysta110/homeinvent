@@ -9,14 +9,14 @@ class EditProfileForm extends Component{
         })
     }
 
-    editProfile = (e) => {   // create request to create a new user
+    editProfile = (e) => {   // create request to edit a user
         e.preventDefault()
 
-        fetch(`http://localhost:3000/api/v1/users/${localStorage.user_id}`, {
+        fetch(`http://localhost:3000/api/v1/users/${localStorage.user_id}`,{
             method: "PATCH",
             headers: {
                 "Content-type": "application/json",
-                'Accept': 'application/json',
+                // 'Accept': 'application/json',
                 Authorization: `Bearer ${localStorage.token}`
             },
             body: JSON.stringify({
@@ -32,11 +32,11 @@ class EditProfileForm extends Component{
             })
         })
         .then(res => res.json())
-        .then(edits => {
-            console.log("New Prodyct in addNEw method then: ", edits)
-            // this.props.add(newProd.product)
+        .then(user =>  {
+            this.props.editUser(user)
+            // console.log("edit user in patch request: ", user)
         })
-
+        
     }
    
     goToMyProfile = () => {
@@ -44,7 +44,9 @@ class EditProfileForm extends Component{
     }
 
     render(){
-        console.log("edit profile state: ", this.state)
+        // console.log("edit profile state: ", this.state)
+        // console.log("edit profile props: ", this.props)
+
 
         return(
         <div>
@@ -53,6 +55,7 @@ class EditProfileForm extends Component{
                 this.editProfile(e)
                 this.goToMyProfile()
             }}>
+
              <p>   
             <label>UserName </label>
             <input name="username" type="text" onChange={(e) => this.handleChange(e)}/>

@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 
 const ProductList = (props) => {
 
-    console.log("props in productlist ", props.products)
+    // console.log("props in productlist ", props.products)
     return (
         <div>
           {localStorage.token
@@ -39,13 +39,11 @@ const ProductList = (props) => {
               <th>
                 <h4 className="ui left aligned header">On Hand</h4>
               </th>
+              <th> </th>
             </tr>
                  {props.products.map(product => {
-                 return (<ProductListItem product={product} key={product.id}/>)
+                 return (<ProductListItem product={product} key={product.id} updateProduct={props.updateProduct}/>)
                 }) }
-
-    
-
           </tbody>
         </table>
         

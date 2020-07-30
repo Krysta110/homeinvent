@@ -31,13 +31,14 @@ end
   def update
     user = User.find(params[:id])
     user.update(user_params)
+    render json: user
 end
 
 
   private
 
   def user_params
-    params.permit(:id, :username, :password, :first_name, :last_name)
+    params.permit(:id, :username, :password, :first_name, :last_name, :company_name)
   # :company_name, :title, :tax_rate, :website_url)
   end
 end

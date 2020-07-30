@@ -6,8 +6,8 @@ class MyProfile extends Component{
 
 
     render(){
-        console.log("In My Profile, state: ", this.state)
-        console.log("In My Profile, props: ", this.props.user)
+        // console.log("In My Profile, state: ", this.state)
+        // console.log("In My Profile, props: ", this.props.user)
         let user = this.props.user
         return(
         <div>

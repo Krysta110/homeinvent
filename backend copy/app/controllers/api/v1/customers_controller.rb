@@ -25,6 +25,15 @@ class Api::V1::CustomersController < ApplicationController
         end
     end
 
+    def edit
+      customer = Customer.find(params[:id])
+    end
+    
+      def update
+        customer = Customer.find(params[:id])
+        customer.update(customer_params)
+        render json: customer
+    end
     
       private
     
